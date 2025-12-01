@@ -1,0 +1,42 @@
+## stap1.html
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envelop 1</title>
+<style>
+body { background: #e8d9b5 url('https://i.imgur.com/0JHh0Vt.png') repeat; font-family: Georgia, serif; margin:0; }
+.container { max-width:500px; margin:60px auto; padding:25px; background: rgba(255,255,255,0.6); border:2px solid #bfae8f; border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,0.3); transform:rotate(-1deg); }
+h2 { text-align:center; color:#4a3c22; }
+p { font-size:17px; line-height:1.5em; color:#3f2f18; }
+input { width:100%; padding:10px; margin-top:10px; margin-bottom:10px; border:1px solid #8b7955; border-radius:4px; background:#fffaf0; }
+.button { display:block; width:100%; padding:12px; background:#8b6f47; color:white; text-align:center; border-radius:5px; text-decoration:none; font-size:18px; margin-top:10px; }
+.button:hover { background:#6e5635; }
+.feedback { color:#9b2b2b; font-weight:600; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Stap 1</h2>
+<p>Vul het codewoord uit Envelop 1 in:</p>
+<input id="answer" type="text" placeholder="Codewoord">
+<button onclick="check()" class="button">Verder</button>
+<p id="feedback" class="feedback"></p>
+</div>
+<script>
+let attempts1 = 0;
+function check() {
+    const val = document.getElementById('answer').value.trim().toUpperCase();
+    if(val==='LAMING'){ window.location.href='stap2.html'; }
+    else {
+        attempts1++;
+        if(attempts1===1){ document.getElementById('feedback').innerText='Fout, probeer het nog eens.'; }
+        else if(attempts1===2){ document.getElementById('feedback').innerText='Niet correct, je kunt dit!'; }
+        else{ document.getElementById('feedback').innerText='Blijf proberen, bijna raak!'; }
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+## finale.html
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laatste puzzel</title>
+<style>
+body { background-color: #f5ecd9; font-family: Georgia, serif; margin:0; }
+.container { max-width:500px; margin:60px auto; padding:25px; background:#fff8e1; border:2px solid #bfae8f; border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,0.3); }
+h2 { text-align:center; color:#4a3c22; }
+p { font-size:17px; line-height:1.5em; color:#3f2f18; }
+input { width:100%; padding:10px; margin-top:10px; margin-bottom:10px; border:1px solid #8b7955; border-radius:4px; background:#fffaf0; }
+.button { display:block; width:100%; padding:12px; background:#8b6f47; color:white; text-align:center; border-radius:5px; text-decoration:none; font-size:18px; margin-top:10px; }
+.button:hover { background:#6e5635; }
+.feedback { color:#9b2b2b; font-weight:600; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Finale</h2>
+<p>Vul het laatste woord in dat je met het codewiel hebt ontcijferd:</p>
+<input id="answer" type="text" placeholder="Laatste woord">
+<button onclick="check()" class="button">Bevestigen</button>
+<p id="feedback" class="feedback"></p>
+</div>
+<script>
+let attemptsF=0;
+function check(){
+ const val=document.getElementById('answer').value.trim().toUpperCase();
+ attemptsF++;
+ if(val==='CHUPA'){ window.location.href='gefeliciteerd.html'; }
+ else{
+  if(attemptsF===1){ document.getElementById('feedback').innerText='Niet correct, probeer nog eens.'; }
+  else if(attemptsF===2){ document.getElementById('feedback').innerText='Denk goed na over het codewiel.'; }
+  else{ document.getElementById('feedback').innerText='Blijf proberen, bijna raak!'; }
+ }
+}
+</script>
+</body>
+</html>
